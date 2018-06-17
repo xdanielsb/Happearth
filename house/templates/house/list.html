@@ -1,0 +1,108 @@
+{% load static %}
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static "house/css/list.css" %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <head>
+  <body>
+    <div class="bg-img" id="particles-js">
+      <div class="btnPP btnPPCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+      <div class="btnPP btnPPCartEmpty"><i class="fa fa-cart-plus" aria-hidden="true"></i></div>
+    </div>
+    <div id="ppProduct" class="">
+      <div class="pictures">
+        <img src="" alt="">
+        <div class="pic" style=""></div>
+      </div>
+      <div class="close" href="#0" class="close"><i class="fa fa-times" aria-hidden="true"></i></div>
+      <div class="item">
+        <div class="infos" style="margin-top: 0px;">
+          <a class="title" href="#">
+            <h2>House</h2>
+          </a>
+          <div style="font-weight:bold;" class="">User is Active</div>
+          <div class="excerpt">
+            <p>
+            <div style="font-weight:bold;">Consumption this month 587</div>
+            </p>
+          </div>
+          <form  >
+            <div class="">
+              <a href="{% url "house:send" to="dniel096@gmail.com" %}"class="btn btn-primary"> Send a message </a>
+              <a style="margin-left:30px;"class="btn btn-primary"> See his activity </a>
+            </div>
+            <br>
+            <p style="font-weight:bold; font-style:italic; "> User is achiving the community Goal </p>
+            <br>
+            <button class="btn btn-success"><span>View details home</span></button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="fade"></div>
+    <ul class="listeProductTest">
+      {% for house in houses %}
+      <li>
+        <img src="{% static "house/img/image.png"%}" alt="">
+        <div>
+          <p style="font-weight: bold;font-size: 18px;">House {{house.id}}</p>
+          <span>ID BigQuery: {{house.label}}</span>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="{% static "monitor/js/particles.min.js" %}"></script>
+    <script src="{% static "monitor/js/particles.conf.js" %}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+      var elem;
+      $('.listeProductTest li').click(function(){
+          elem = $(this);
+          $('#ppProduct .pictures .pic').css('background-image','url('+elem.find('img').attr('src')+')');
+          $('#ppProduct').css('opacity','1');
+          $('#fade').css('opacity','1');
+          $('#ppProduct').addClass('open');
+          $('#fade').addClass('active');
+          setTimeout(function(){
+            $('#ppProduct').addClass('openInfos');
+            setTimeout(function(){
+              $('#ppProduct').addClass('animInfos')
+            }, 300);
+          }, 500);
+        
+      });
+      $('#fade').click(function(){
+        // Popup Produit
+          if($('#ppProduct').hasClass('open')){
+            var endPic = elem.find('img')
+            var endTop = endPic.offset().top;
+            var endLeft = endPic.offset().left;
+            var endWidth = endPic.width();
+            var endHeight = endPic.height();
+              $('#ppProduct').removeClass('animInfos');
+              $('#ppProduct').removeClass('openInfos');
+              setTimeout(function(){
+                // Anim Largeur & Hauter
+                  $("#ppProduct").animate({
+                    width: endWidth,
+                    height: endHeight,
+                    top: endTop+endHeight/2,
+                    left: endLeft+endWidth/2,
+                  }, { duration: 200, queue: false });
+                  setTimeout(function(){
+                  $('#fade').animate({"opacity":"0"},"slow");
+                  $('#ppProduct').animate({"opacity":"0"},"slow");
+                  
+                  setTimeout(function(){
+                    $('#ppProduct').removeClass('open');
+                    $('#fade').removeClass('active');
+                    $('#ppProduct').attr('style','');
+                  },500);  
+                },500);
+              },500);
+          }
+      });
+    </script>
+  </body>
+</html>

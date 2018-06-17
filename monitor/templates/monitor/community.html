@@ -1,0 +1,102 @@
+{% extends "monitor/base/frame.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static "monitor/css/slider.css" %}">
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdn.rawgit.com/xdanielsb/Energy/e2866a5c/base/b3/code_animated_radial%24.js" ></script>
+<style>
+   .shift_chart {
+    margin-left:15%;
+    position:absolute;
+   }
+   @media (max-width: 1300px) {
+     .shift_chart {
+        margin-left:5%;
+      }
+   }
+  @media (max-width: 1500px) {
+     .shift_chart {
+        margin-left:10%;
+      }
+   }
+</style>
+{% endblock %}
+{% block body %}
+  <div class="inside" > 
+    <div class="container" style="margin-top:0px;">
+      <center>
+        <div>
+          <h2 class="tittle" style="margin-left:300px">Last Month's Energy Usage per Household</h2>
+        </div>
+        <div id="chart" style=""></div>
+      </center>
+    </div>
+    <div class="shift_chart">
+      <div class="range">
+        <input type="range" min="1" max="12" steps="1" value="12">
+      </div>
+      <ul class="range-labels">
+        <li>JAN</li>
+        <li>FEB</li>
+        <li>MAR</li>
+        <li>APR</li>
+        <li>MAY</li>
+        <li>JUN</li>
+        <li>JUL</li>
+        <li>AUG</li>
+        <li>SEP</li>
+        <li>OCT</li>
+        <li>NOV</li>
+        <li>DEC</li>
+      </ul>
+    </div>
+    <script>
+      let data  ={{consumption_houses|safe}}
+      let bh = new Radial(data)
+      let codeHouse = {{code_house}}
+      bh.plot("chart", codeHouse, false);
+      var sheet = document.createElement('style'),
+        $rangeInput = $('.range input'),
+        prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track'];
+      document.body.appendChild(sheet);
+      var onClickBullet = function(el) {
+        $('.range-labels li').removeClass('active selected');
+        var curLabel = $('.range-labels').find('li:nth-child(' + el.value + ')');
+        curLabel.addClass('active selected');
+        curLabel.prevAll().addClass('selected');
+      }
+      $rangeInput.on('input', function() {
+        onClickBullet(this);
+      });
+      $('.range-labels li').on('click', function() {
+        var index = $(this).index();
+        $rangeInput.val(index + 1).trigger('input');
+        //alert(index)
+        let d = new Date()
+        let n = d.getMonth() + 1
+        elements = []        
+        if( n != index ){
+          let past_month={{past_month|safe}}
+          let bh = new Radial(past_month[index + 1])
+          bh.plot("chart", {{code_house}}, false);
+        }else {
+          let bh = new Radial(data)
+          bh.plot("chart", {{code_house}}, false);
+        } 
+      });
+      $(document).ready(function(){
+        let d = new Date()
+        let n = d.getMonth() + 1
+        $rangeInput.val(n).trigger('input');
+      })
+    </script>
+  </div>
+{% endblock %}
+{% block tmodal  %} Help us to improve {% endblock %}
+{% block pmodal %}
+<h3 style="margin-left:-10px"> Did you understand the graph? </h3> <br> 
+<form id="user-rating-form">
+  <button > Yes </button>
+  <button > No </button>
+</form>
+{% endblock %}

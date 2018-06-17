@@ -1,0 +1,42 @@
+[
+  {
+    "model": "accounts.Reaction",
+    "pk": 1,
+    "fields": {
+      "kind": "Like",
+      "desc": "A user like at item in the plataform."
+    }
+  },
+  {
+    "model": "accounts.Reaction",
+    "pk": 2,
+    "fields": {
+      "kind": "Dislike",
+      "desc": "A user does not like at item in the plataform."
+    }
+  },
+  {
+    "model": "accounts.Reaction",
+    "pk": 3,
+    "fields": {
+      "kind": "Understandable",
+      "desc": "A user like at item in the plataform."
+    }
+  },
+  {
+    "model": "accounts.Reaction",
+    "pk": 4,
+    "fields": {
+      "kind": "Easy to understand",
+      "desc": "A user understand at item in the plataform."
+    }
+  },
+  {
+    "model": "accounts.Reaction",
+    "pk": 5,
+    "fields": {
+      "kind": "Difficult to understand",
+      "desc": "A user says that an item is difficult to understand in the plataform."
+    }
+  }
+]

@@ -1,0 +1,42 @@
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+.env
+#db.sqlite3
+
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+
+# Temporary
+.netrwhist
+*~
+# Auto-generated tag files
+tags
+
+#requests
+ecobee/requests
+ecobee/curl
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+
+# Security
+house/bq-user-creds.json
+bq-user-creds.json
+env.sh
+
+# Static files
+staticfiles/

@@ -1,0 +1,154 @@
+{% if MODE == "U1" %}
+<div class="sidenav-right" id="sidenav-right"  style="" >
+      <div class="wrapper2">
+        <div class="header-right-menu">
+          <h3>History</h3>
+          <span class="glyphicon glyphicon-bell bell" onclick="hideRightMenu()"></span>
+        </div>
+        <div class="content-right-menu">
+          <div class="item-content" style="background-color: yellow;">
+            <div class="item-right-menu">
+              <b >21</b>
+              <p style="display:inline"> MARCH: </p>
+              <p style="color:red;display:inline">Your community is doing better than last month, but still on track to exceed the monthly goal.</p>
+            </div>
+          </div>
+          <div class="item-content">
+            <div class="item-right-menu">
+              <p style="display:inline"> FEBRUARY: </p>
+              <p style="color:green;display:inline">Your community met the monthly goal.</p>
+            </div>
+          </div>
+          <div class="item-content">
+            <div class="item-right-menu">
+              <p style="display:inline"> JANUARY: </p>
+              <p style="color:green;display:inline">Your community met the monthly goal.</p>
+            </div>
+          </div>
+          <div class="item-content" style="background-color: #f4d5d5;">
+            <div class="item-right-menu">
+              <p style="display:inline"> DECEMBER: </p>
+              <p style="color:#ff5050;display:inline">Your community missed the monthly goal by a large: 5,000 kWh.</p>
+            </div>
+          </div>
+          <div class="item-content">
+            <div class="item-right-menu">
+              <p style="display:inline"> NOVEMBER: </p>
+              <p style="color:green;display:inline">Your community met the monthly goal.</p>
+            </div>
+          </div>
+          <div class="item-content" style="background-color: #f4d5d5;">
+            <div class="item-right-menu">
+              <p style="display:inline"> OCTOBER: </p>
+              <p style="color:#ff5050;display:inline">Your community missed the monthly goal by a large: 5,000 kWh.</p>
+            </div>
+          </div>
+          <div class="item-content" style="background-color: #f4d5d5;">
+              <div class="item-right-menu">
+                <p style="display:inline"> SEPTEMBER: </p>
+                <p style="color:#ff5050;display:inline">Your community missed the monthly goal by a large: 5,000 kWh.</p>
+              </div>
+            </div>
+            <div class="item-content">
+              <div class="item-right-menu">
+                <p style="display:inline"> AUGUST: </p>
+                <p style="color:green;display:inline">Your community met the monthly goal.</p>
+              </div>
+            </div>
+            <div class="item-content" style="background-color: #f4d5d5;">
+              <div class="item-right-menu">
+                <p style="display:inline"> JULY: </p>
+                <p style="color:#ff5050;display:inline">Your community missed the monthly goal by a large: 5,000 kWh.</p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+<span id="bell1" class="glyphicon glyphicon-bell bell" style="margin-top:-10px; " onclick="displayRightMenu()"></span>
+{% elif MODE == "U2" %}
+<div class="sidenav-right" id="sidenav-right"  style="" >
+  <div class="">
+    <div class="header-right-menu">
+        <h3 id="title-noti">History</h3>
+      <!--  <span id="bell2" class="glyphicon glyphicon-bell bell" onclick="hideRightMenu()"></span> -->
+    </div>
+    <div class="content-right-menu">
+      <div class="messages">
+        <div class="seacrh-bar">
+          <!--  <img src="img/search.png" alt=""> -->
+          <input type="text" placeholder="Search">
+        </div>
+        <a href="#" class="messages__item yellow_message">
+          <div class="name">
+            June
+          </div>
+          <div class="date">
+            1h ago
+          </div>
+          <div class="content">
+            Your community is doing better than last month, but still on track to exceed the monthly goal.  
+          </div>
+        </a>
+        <a href="#" class="messages__item green_message">
+          <div class="name">
+            May
+          </div>
+          <div class="date">
+            1m ago
+          </div>
+          <div class="content">
+            Your community met the monthly goal.
+          </div>
+        </a>
+        <a href="#" class="messages__item red_message">
+          <div class="name">
+            April
+          </div>
+          <div class="date">
+            2m ago
+          </div>
+          <div class="content">
+            Your community missed the monthly goal by a large: 5,000 kWh.      
+          </div>
+        </a>
+        <a href="#" class="messages__item yellow_message">
+          <div class="name">
+            March
+          </div>
+          <div class="date">
+            3m ago
+          </div>
+          <div class="content">
+            Your community is doing better than last month, but still on track to exceed the monthly goal.  
+          </div>
+        </a>
+        <a href="#" class="messages__item red_message">
+          <div class="name">
+            February
+          </div>
+          <div class="date">
+            4m ago
+          </div>
+          <div class="content">
+            Your community missed the monthly goal by a large: 5,000 kWh.      
+          </div>
+        </a>
+        <a href="#" class="messages__item green_message">
+          <div class="name">
+            January
+          </div>
+          <div class="date">
+            5m ago
+          </div>
+          <div class="content">
+            Your community met the monthly goal.
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<span id="bell1" class="glyphicon glyphicon-bell "  onclick="displayRightMenu()"> </span>
+<span id="noti1" class="glyphicon glyphicon-ok" data-toggle="modal" data-target="#myReaction"> </span>
+<span id="ques1" class="glyphicon glyphicon-question-sign" > </span>
+{% endif %}

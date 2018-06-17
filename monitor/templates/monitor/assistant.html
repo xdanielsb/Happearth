@@ -1,0 +1,42 @@
+{% extends "monitor/base/frame.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "monitor/css/assistant.css" %}" />
+<style>
+  .kind {
+    list-style: none
+  }
+</style>
+<script>
+var _0x2876=['textContent','isFinal','includes','show\x20me\x20the\x20weather','#icon2','location','href','/monitor/actions/','This\x20month\x20581\x20kWh','start','speechRecognition','interimResults','createElement','.words','html','addEventListener','result','from','results','length','transcript','map','join'];(function(_0x648c3a,_0x370b3f){var _0xf4bbb9=function(_0x1fa53f){while(--_0x1fa53f){_0x648c3a['push'](_0x648c3a['shift']());}};_0xf4bbb9(++_0x370b3f);}(_0x2876,0x107));var _0x244e=function(_0x283cd4,_0x1c2a82){_0x283cd4=_0x283cd4-0x0;var _0x2c23d5=_0x2876[_0x283cd4];return _0x2c23d5;};window[_0x244e('0x0')]=window[_0x244e('0x0')]||window['webkitSpeechRecognition'];const recognition=new speechRecognition();recognition['continuous']=!![];recognition[_0x244e('0x1')]=!![];let p=document[_0x244e('0x2')]('p');const words=$(_0x244e('0x3'));$(_0x244e('0x3'))[_0x244e('0x4')](p);recognition[_0x244e('0x5')](_0x244e('0x6'),_0x1c1246=>{let _0xa20b5c=Array[_0x244e('0x7')](_0x1c1246[_0x244e('0x8')]);let _0x1e16f4=_0xa20b5c[_0x244e('0x9')];let _0x36f26d=_0xa20b5c[_0x1e16f4-0x1][0x0][_0x244e('0xa')];const _0x4523ea=Array[_0x244e('0x7')](_0x1c1246[_0x244e('0x8')])[_0x244e('0xb')](_0x144271=>_0x144271[0x0])[_0x244e('0xb')](_0x331905=>_0x331905[_0x244e('0xa')])[_0x244e('0xc')]('');p[_0x244e('0xd')]=_0x4523ea;if(_0x1c1246[_0x244e('0x8')][0x0][_0x244e('0xe')]==!![]){$(_0x244e('0x3'))[_0x244e('0x4')](_0x36f26d);}if(_0x36f26d[_0x244e('0xf')](_0x244e('0x10'))){$(_0x244e('0x11'))['click']();}else if(_0x4523ea['includes']('show\x20my\x20status')){window[_0x244e('0x12')][_0x244e('0x13')]=_0x244e('0x14');}else if(_0x4523ea[_0x244e('0xf')]('what\x20is\x20my\x20current\x20consumption')){$(_0x244e('0x3'))[_0x244e('0x4')](_0x244e('0x15'));}});recognition[_0x244e('0x5')]('end',recognition[_0x244e('0x16')]());
+</script>
+{% endblock %}
+{% block body %}
+<div class="cont">
+  <ul class="container processing">
+    <li class="kind" ></li>
+    <li class="kind"></li>
+    <li class="kind"></li>
+    <li class="kind"></li>
+  </ul>
+  <dialog>
+    <span class="words">Hi, How can I help?</span>
+  </dialog>
+</div>
+<script>
+const frame = document.querySelector('.container');
+const dialog = document.querySelector('dialog');
+frame.classList.add('resizing');
+const ticker = setInterval(function (e) {
+  frame.classList.remove('processing');
+  frame.classList.add('grouping');
+  clearInterval(ticker);
+},2500);
+const secondticker = setInterval(function (e) {
+  frame.classList.add('resizing');
+  dialog.classList.add('visible');
+  clearInterval(secondticker);
+},3300);
+</script>
+{% endblock %}

@@ -1,0 +1,316 @@
+<html>
+<head>
+<style>
+input[type="checkbox"]:checked+label .icon:after {
+  -webkit-animation: decolorize .6s 1s 1;
+  animation: decolorize .6s 1s 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+input[type="checkbox"]:checked+label .check {
+  transform: translate(0, 155px);
+}
+
+input[type="checkbox"]:checked+label .icon:before {
+  -webkit-animation: closing 1.2s 1;
+  animation: closing 1.2s 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+input[type="checkbox"]:checked+label .button:before {
+    content: "open";
+}
+
+.wrapper {
+  border: 1px solid #f4f4f4;
+  border-radius: 120px;
+  padding: 50px;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.icon {
+  position: relative;
+  margin: 140px auto 0;
+  width: 340px;
+  height: 200px;
+  background: #4879df;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 2px #4879df inset;
+  
+  -webkit-animation: launch 2s 1;
+  animation: launch 2s 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.icon:before,
+.icon:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-width: 100px 170px;
+}
+.icon:before {
+  top: -100%;
+  left: 0px;
+  -webkit-animation: opening 1.2s 1;
+  animation: opening 1.2s 1;
+  transform-origin: 0 100%;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+
+
+.icon:after {
+  border-right-color: #f7f7f7;
+  border-left-color: #f7f7f7;
+  border-bottom-color: #fff;
+  top: 0;
+  border-radius: 0 0 20px 20px;
+  transform: rotate(360deg);
+  box-shadow: 0 2px 2px rgba(0,0,0,0.25);
+  
+  -webkit-animation: colorize .6s 1s 1;
+  animation: colorize .6s 1s 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  
+}
+
+.check {
+  width: 200px;
+  height: 180px;
+  position: absolute;
+  top: 16px;
+  left: 80px;
+  z-index: 0;
+  -webkit-animation: appearing .4s 1s 1;
+  animation: appearing 4s 1s 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  transition: all .6s linear;
+}
+
+
+.check:before, .check:after {
+  content: "";
+  background: #e0e0e0;
+  position: absolute;
+  display: block;
+-webkit-transition: bottom 0.3s linear; 
+          transition: bottom 0.3s linear; 
+}
+.check:before {
+  height: 34px;
+  width: 60px;
+  transform: rotate3d(0, 0, 1, 46deg);
+  -webkit-transform: rotate3d(0, 0, 1, 46deg);
+  bottom: 36px;
+  left: 14px;
+}
+
+
+.check:after {
+  width: 200px;
+  height: 34px;
+  transform: rotate3d(0, 0, 1, -44deg);
+  -webkit-transform: rotate3d(0, 0, 1, -44deg);
+  bottom: 60px;
+  right: -36px;
+  
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,.4);
+          box-shadow: 0px 2px 2px 0px rgba(0,0,0,.4);
+}
+
+@-webkit-keyframes appearing {
+  0%   { top: 0; opacity: 0; }
+  100% { top: -140px; opacity: 1; }
+}
+@keyframes appearing {
+  0%   { top: 0; opacity: 0; }
+  100% { top: -140px; opacity: 1; }
+}
+
+
+@-webkit-keyframes launch {
+  0%   { 
+    -webkit-transform: scale(.6);
+    transform: scale(.6);
+  }
+}
+@keyframes launch {
+  0%   { 
+    -webkit-transform: scale(.6);
+    transform: scale(.6);
+  }
+}
+
+
+@-webkit-keyframes opening {
+  0% {
+    transform: rotate3d(360,0,0, 180deg);
+    border-bottom-color: #fff;
+  }
+  100% {
+    transform: rotate3d(0,0,0, 180deg);
+    border-bottom-color: #3367d5;
+  }
+}
+
+
+@-webkit-keyframes closing {
+  100% {
+    transform: rotate3d(360,0,0, 180deg);
+    border-bottom-color: #fff;
+  }
+  0% {
+    transform: rotate3d(0,0,0, 180deg);
+    border-bottom-color: #3367d5;
+  }
+}
+
+@keyframes opening {
+  100% {
+    transform: rotate3d(360,0,0, 180deg);
+    border-bottom-color: #fff;
+  }
+  0% {
+    transform: rotate3d(0,0,0, 180deg);
+    border-bottom-color: #3367d5;
+  }
+}
+
+
+
+@-webkit-keyframes colorize {
+  0% {
+    border-right-color: #f7f7f7;
+    border-left-color: #f7f7f7;
+    border-bottom-color: #fff;
+  }
+  60% {
+    border-right-color: #f7f7f7;
+    border-left-color: #f7f7f7;
+    border-bottom-color: #fff;
+  }
+  100% {
+border-right-color: #84d5fa;
+  border-left-color: #31b9f6;
+  border-bottom-color: #81d2f9;
+  }
+}
+
+@keyframes colorize {
+  0% {
+    border-right-color: #f7f7f7;
+    border-left-color: #f7f7f7;
+    border-bottom-color: #fff;
+  }
+  60% {
+    border-right-color: #f7f7f7;
+    border-left-color: #f7f7f7;
+    border-bottom-color: #fff;
+  }
+  100% {
+border-right-color: #84d5fa;
+  border-left-color: #31b9f6;
+  border-bottom-color: #81d2f9;
+  }
+}
+@-webkit-keyframes decolorize {
+  100% {
+    border-right-color: #f7f7f7;
+    border-left-color: #f7f7f7;
+    border-bottom-color: #fff;
+  }
+  70% {
+    border-right-color: #f7f7f7;
+    border-left-color: #f7f7f7;
+    border-bottom-color: #fff;
+  }
+  0% {
+border-right-color: #84d5fa;
+  border-left-color: #31b9f6;
+  border-bottom-color: #81d2f9;
+  }
+}
+
+@keyframes decolorize {
+  100% {
+    border-right-color: #f7f7f7;
+    border-left-color: #f7f7f7;
+    border-bottom-color: #fff;
+  }
+  70% {
+    border-right-color: #f7f7f7;
+    border-left-color: #f7f7f7;
+    border-bottom-color: #fff;
+  }
+  0% {
+border-right-color: #84d5fa;
+  border-left-color: #31b9f6;
+  border-bottom-color: #81d2f9;
+  }
+}
+
+
+
+.button {
+  font-family: 'arial';
+  text-transform: uppercase;
+  outline: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  margin-left: -20px;
+  border-radius: 4px;
+  border: none;
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,.4);
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,.4);
+  background: #00afec;
+  color: white;
+}
+
+.button:before {
+  content: "close";
+}
+
+.button:active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.button:hover {
+  background: #0cb9f6;
+}
+
+</style>
+  </head>
+  <body>
+
+    <input type="checkbox" id="inbox">
+<label class="label" for="inbox">
+  <span class="button"></span>
+  <div class="wrapper" id="wrapper">
+    <div class="icon">
+      <div class="check"></div>
+    </div>
+  </div>
+</label>
+
+  </body>
+  </html>

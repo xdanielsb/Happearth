@@ -1,0 +1,165 @@
+{% extends "monitor/base/frame.html" %}
+{% load static %}
+{% block title %}
+<div class="main-tittle inside">Community Consumption This Month</div>
+{% endblock %}
+{% block body %}
+<div id='container' class="inside"style="width:700px;" >
+<!-- <h3 class="community-goal" style="padding-left: 505px;">Goal</h3> -->
+<!-- <div class="doted" style="left: {{consumption_goal}}px; top: 250px;height: 200px;"> </div> -->
+<div class="meter canela" style="height: 150px;"  >
+  <div class='meter-bar green' style="width: {{p}}%;height: 150px;">
+    <div class="txt-green first-txt" >
+      This month:
+    </div>
+    <div class="progress-green">
+      {{consumption}}
+    </div>
+    <div class="txt-green">
+      kWh
+    </div>
+  </div>
+  <div class='meter-bar gray' style="width: {{pm}}%;height: 150px;">
+  </div>
+  <div class="orange-region">
+  </div>
+</div>
+<img src="{% static "monitor/img/scale_values.png" %}" alt="" class="scale-values" style="">
+<span  style="position:relative; top:30px; margin-left:-350px" class="glyphicon glyphicon-option-horizontal glyphicon-index" onclick="displayOptions()"></span>
+<div id="sub-progress" style="">
+  <div class="selement">
+    <img src="{% static "monitor/img/heatCool.png" %}"  style="float:left">
+    <!--  <div class="doted" style="left: {{consumption_a_goal}}px; top: 515px;height: 63px;"> </div> -->
+    <div class="meter"  style="margin-left:70px; width:550px; height: 60px;">
+      <div class='meter-bar red' style="width: {{pa}}%;height: 60px;" >
+        <div style="margin-top: 20px">
+          <p class="sub-txt-number" > 
+            {{consumption_a}}
+          </p>
+          <p class="kWh">kWh</p>
+        </div>
+      </div>
+      <div class='meter-bar gray' style="width: {{pam}}%;height: 60px;">
+        <div style="margin-top: 10px">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="selement">
+    <img src="{% static "monitor/img/waterBoiler.png" %}"  style="float:left">
+    <!--  <div class="doted" style="left: {{consumption_b_goal}}px; top: 610px;height: 63px;"> </div> -->
+    <div class="meter"  style="margin-left:70px; width:350px; height: 60px;">
+      <div class='meter-bar blue' style="width: {{pb}}%;height: 60px;" >
+        <div style="margin-top: 20px">
+          <p class="sub-txt-number" > 
+            {{consumption_b}}
+          </p>
+          <p class="kWh">kWh</p>
+        </div>
+      </div>
+      <div class='meter-bar gray' style="width: {{pbm}}%;height: 60px;">
+        <div style="margin-top: 10px">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="selement">
+    <img src="{% static "monitor/img/lights.png" %}" style="float:left">
+    <!-- <div class="doted" style="left: {{consumption_c_goal}}px; top: 705px;height: 63px;"> </div> -->
+    <div class="meter"  style="margin-left:70px; width:300px; height: 60px;">
+      <div class='meter-bar yellow' style="width: {{pc}}%;height: 60px;" >
+        <div style="margin-top: 20px">
+          <p class="sub-txt-number" > 
+          {{consumption_c}}
+          </p>
+          <p class="kWh">kWh</p>
+        </div>
+      </div>
+      <div class='meter-bar gray' style="width: {{pcm}}%;height: 60px;">
+        <div style="margin-top: 10px">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="selement">
+    <img src="{% static "monitor/img/appliances.png" %}"   style="float:left">
+    <!-- <div class="doted" style="left: {{consumption_d_goal}}px; top: 800px;height: 63px;"> </div> -->
+    <div class="meter"  style="margin-left:70px; width:250px; height: 60px;">
+      <div class='meter-bar navy' style="width: {{pd}}%;height: 60px;" >
+        <div style="margin-top: 20px">
+          <p class="sub-txt-number" > 
+          {{consumption_d}}
+          </p>
+          <p class="kWh">kWh</p>
+        </div>
+      </div>
+      <div class='meter-bar gray' style="width: {{pdm}}%;height: 60px;">
+        <div style="margin-top: 10px">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% if MODE == "U2" %}
+<div class="popup-box chat-popup" id="qnimate">
+  <div class="popup-head">
+    <div class="popup-head-left pull-left"><img src="{% static "monitor/img/support.png"%}" width="64px" height="64px"> Marlen, Support </div>
+    <div class="popup-head-right pull-right">
+      <button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i class="glyphicon glyphicon-remove"></i>
+      </button>
+    </div>
+  </div>
+  <div class="popup-messages">
+    <div class="direct-chat-messages">
+      <div class="chat-box-single-line">
+        <abbr class="timestamp">June 15, 2018</abbr>
+      </div>
+      <div class="direct-chat-msg doted-border">
+        <div class="direct-chat-info clearfix">
+          <span class="direct-chat-name pull-left">Marlen</span>
+        </div>
+        <img alt="message user image" src="{% static "monitor/img/support.png"%}"  width="64px" height="64px" class="direct-chat-img">
+        <div class="direct-chat-text">
+          Hey Jhon,  would you like to save more energy and help your community?
+        </div>
+        <div class="direct-chat-info clearfix">
+          <span class="direct-chat-timestamp pull-right">3.36 PM</span>
+        </div>
+        <div class="direct-chat-info clearfix">
+          <span class="direct-chat-img-reply-small pull-left"></span>
+          <span class="direct-chat-reply-name">Yes, Absolutely</span>
+        </div>
+      </div>
+      <div class="chat-box-single-line">
+        <abbr class="timestamp">June 16, 2018</abbr>
+      </div>
+      <div class="direct-chat-msg doted-border">
+        <div class="direct-chat-info clearfix">
+          <span class="direct-chat-name pull-left">Marlen</span>
+        </div>
+        <img src="{% static "monitor/img/support.png"%}" width="64px" height="64px" class="direct-chat-img">
+        <div class="direct-chat-text">
+          let's take care of the Earth!
+        </div>
+        <div class="direct-chat-info clearfix">
+          <span class="direct-chat-timestamp pull-right">3.36 PM</span>
+        </div>
+        <div class="direct-chat-info clearfix">
+          <!-- <img src="{% static "monitor/img/support.png"%}" width="64px" height="64px" class="direct-chat-img big-round"> -->
+<span class="direct-chat-img-reply-small pull-left"></span>
+          <span class="direct-chat-reply-name"> I am in!!!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="popup-messages-footer">
+    <textarea id="status_message" placeholder="Type a message..." rows="10" cols="40" name="message"></textarea>
+    <div class="btn-footer">
+
+    </div>
+  </div>
+</div>
+{% endif %}
+<span id="noti2" class="glyphicon glyphicon-envelope"> </span>
+{% endblock %}

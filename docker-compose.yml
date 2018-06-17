@@ -1,0 +1,16 @@
+version: '3.2'
+ 
+services:
+  app:
+    build: .
+    tty: true
+    expose:
+      - "8000"
+
+  load_balancer:
+    build: ./nginx
+    tty: true
+    links:
+      - app
+    ports:
+      - "8080:8080"

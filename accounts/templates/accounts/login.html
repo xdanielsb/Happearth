@@ -1,0 +1,34 @@
+{% extends "accounts/base/frame.html" %}
+{% load staticfiles %}
+{% block css %}
+{% if  MODE == "U1" %} 
+{% elif MODE == "U2" %} 
+<link rel="stylesheet" href="{% static "accounts/css/login.css" %}" >
+<style>
+.errorlist{
+  color:white;
+}
+</style>
+{% endif %} 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div id="particles-js" > 
+<div id="container">
+<form action="." method="post">
+  <h1>Log in </h1>
+  {% csrf_token %}
+  {{ form }}
+  <center>
+  <button type="submit" class="input-submit" >Log in</button>
+  </center>
+</form>
+</div>
+</div>
+<script>
+ $("#container").fadeIn();
+</script>
+<script src="{% static "monitor/js/particles.min.js" %}"></script>
+<script src="{% static "monitor/js/particles.conf.js" %}"></script>
+{% endblock %}

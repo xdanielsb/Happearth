@@ -1,0 +1,19 @@
+{%  extends "accounts/base/frame.html" %}
+{% block content %}
+{% if user.is_superuser %}
+  {% for user in object_list %}
+     username: {{user.username}} <br>
+     password: {{user.password}} <br>
+     email :  {{user.email}} <br>
+     first_name : {{user.first_name}} <br>
+     last_name : {{user.last_name}} <br>
+     groups: {{user.groups}} <br>
+     user_permissions : {{user.user_permissions}} <br>
+     is_staff: {{user.is_staff}} <br>
+     is_active: {{user.is_active}} <br>
+     is_super_user : {{user.is_superuser}} <br>
+     last login : {{user.last_login}} <br>
+     date joined : {{user.date_joined}} <br>
+  {% endfor %}
+{% endif %}
+{% endblock %}

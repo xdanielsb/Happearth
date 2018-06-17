@@ -1,0 +1,102 @@
+{% load static %}
+<div class="sidenav-left">
+{% if MODE == "U1" %}
+<center>
+  <a href="{% url "monitor:calendar" %}" style="border-color:transparent">
+    <img  src="{% static "monitor/img/date0.png" %}" alt="" class="img-logo">
+  </a>
+  <br><br>
+  <div class="btn-link"  id="active_button">
+    <a href="{% url "monitor:home" %}">Our Status</a>
+  </div>
+  <div class="btn-link" >
+    <a href="{% url "monitor:community" %}">Our Community</a>
+  </div>
+  <div class="btn-link">
+    <a href="{% url "monitor:actions" %}">My Actions</a>
+  </div>
+  <div class="btn-link">
+    <a href="{% url "monitor:wallet" %}">My Wallet</a>
+  </div>
+  <a href="credits.html" style="border-color:transparent">
+    <span style="position:relative; top:30px;" class="glyphicon glyphicon-info-sign" ></span>
+  </a>
+</center>
+{% elif MODE == "U2" %}
+<center>
+  <div class="today img-logo">
+    <div class="img-calendar" style="float:left; padding-top:10px;">
+      <a href="#lol"data-toggle="modal" data-target="#myModal"  >
+        <div style="border-left:10px;" db="Weather" dbp="up" >
+          <canvas id="icon2" width="30" height="30" ></canvas>
+        </div>
+      </a>
+    </div>
+    <div class="temperature" style="float:right; padding-right:5px;padding-top:10px;">
+      <a href="#lol2" id="loltemp2" data-toggle="modal" data-target="#myModal" db="Temperature" dbp="up" >
+      72&deg;F
+      </a>
+    </div>
+    <a href="{% url "monitor:calendar" %}" style="border-color:transparent" >
+    {% if day < 9 %}
+    <div class="num-calendar" style="font-size:90px; margin-bottom:-30px">
+      {{day}}
+    </div>
+    {% else %}
+    <div class="num-calendar" style="font-size:75px; margin-bottom:-10px; margin-top:20px">
+      {{day}}
+    </div>
+    {%endif%}
+    <div class="month-year-calendar"  id="link-calendar" db="Calendar" dbp="down" >
+      {{month}}, {{year}}
+    </div>
+  </div>
+  </a>
+  <section id="book">
+    <a href="{% url "monitor:home" %}" >
+    <label data-page="0" id="link-home"  db="Status" dbp="right" for="page1" class="check radio home"></label>
+    </a>
+    <a href="{% url "monitor:community" %}">
+    <label  id="link-community" data-page="100"  db="Community" dbp="right"  for="page2" class="check radio book"></label>
+    </a>
+    <a href="{% url "monitor:actions" %}" >
+    <label id="link-actions" data-page="200" for="page3"  db="My Actions" dbp="right" class="check radio mail"></label>
+    </a>
+    <a href="{% url "monitor:wallet" %}" > 
+    <label id="link-wallet" data-page="300" for="page4" db="My Wallet" dbp="right"  class="check radio find"></label>
+    </a>
+    {% if request.user.is_superuser%}
+      <a href="{% url "homepage" %}"> 
+        <label data-page="300" for="page4" db="Admin" dbp="right"  class="check radio settings"></label>
+      </a>
+    {% endif %}
+    
+     </section>
+</center>
+{% endif %}
+</div>
+{% if MODE == "U2" %}
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Current Weather</h4>
+      </div>
+      <div class="modal-body" style="height:200px">
+        <div class="wrapper-weather">
+          <div class="wrapper-weather-left">
+            <canvas id="icon1" width="128" height="128"></canvas>
+          </div>
+          <div class="wrapper-weather-right">
+            <p id="weather-des" style="font-weight: bold; font-size: 20px;" ></p>
+            <div id="convert"><p id="temperature" style="font-weight: bold; font-size: 18px;" ></p> </div>
+            <p id="city" style="font-weight: bold; font-size: 18px;" ></p>
+            <p id= "country" style="font-weight: bold; font-size: 18px;" ></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}

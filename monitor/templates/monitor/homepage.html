@@ -1,0 +1,53 @@
+<html>
+<head>
+{% load static %}
+{% if MODE == "U1" %}
+{% elif MODE == "U2" %}
+<link rel="stylesheet" href="{% static "monitor/css/homepage.css" %}" />
+<link rel="stylesheet" href="{% static "monitor/css/fade-in.css" %}" />
+<style>
+.particles-js-canvas-el {
+  position:absolute;
+}
+</style>
+{% endif %}
+</head>
+{% if MODE == "U1" %}
+{% elif MODE == "U2" %}
+<body  class="header" style="background-color:black;">
+  <div >
+    <div  id="particles-js" class="portrait"></div>
+    <div class="nav-container">
+      <ul class="nav">
+        <!-- <li><a href="#">Features</a></li> For the features of the software -->
+        {% if request.user.is_authenticated %}
+        <li><a href="{% url "landing" %}" class="fade-in one">Home </a></li>
+        {% if request.user.is_superuser%}
+        <li><a href="/sadmin/" class="fade-in two">Admin </a></li>
+        <li><a href="/monitor/" class="fade-in two">Test one User </a></li>
+        <li><a href="/houses/" class="fade-in two">Houses</a></li>
+        <li><a href="{% url "account:logout" %}" class="fade-in three" >Log out</a></li>
+        {% endif %}
+        {% else %}
+        <li><a href="{% url "account:login" %}" class="fade-in one">Sign In</a></li>
+        {% endif %}
+        <!-- <li><a href="http://rcodi.org/energyvis">More Info</a></li> -->
+      </ul>
+    </div>
+    <div class="wrapper">
+      <div class="text-container">
+        <div class="intro">
+          <p class="title-text">Happearth</p>
+          <br>
+          <p class="sub-text">Saving Energy</p>
+        </div>
+        <div class="body">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="{% static "monitor/js/particles.min.js" %}"></script>
+  <script src="{% static "monitor/js/particles.conf.js" %}"></script>
+</body>
+{% endif %}
+</html>

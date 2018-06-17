@@ -1,0 +1,58 @@
+{% extends "monitor/base/frame.html" %}
+{% load static %}
+{% block styles %}
+{% if MODE == "U1" %}
+{% elif MODE == "U2" %}
+<link href='{% static "monitor/css/fullcalendar.min.css"%}' rel='stylesheet' />
+<link href='{% static "monitor/css/fullcalendar.print.min.css" %} ' rel='stylesheet' media='print' />
+<script src='{% static "monitor/js/jquery.min.js" %}'></script>
+<script src='{% static "monitor/js/moment.min.js" %}'></script>
+<script src='{% static "monitor/js/fullcalendar.min.js" %}'></script>
+<script>
+  $(document).ready(function() {
+    $('#calendar2').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,basicWeek,basicDay'
+      },
+      navLinks: true,       
+      editable: true,
+      eventLimit: true, 
+      events: [
+        {
+          title: 'Daniel"s Event',
+          start: '2018-06-01',
+          end: '2018-07-10'
+        },
+        {
+          title: 'Click for Google',
+          url: 'http://google.com/',
+          start: '2018-03-28'
+        }
+      ]
+    });
+  });
+</script>
+<style>
+  #calendar2 {
+    max-width: 700px;
+    margin: 40px auto;
+  }
+</style>
+{% endif %}
+{% endblock %}
+{% block body %}
+{% if MODE == "U1" %}
+<div class="container" style=" margin-left:300px;">
+  <center>
+    <h2 class="tittle" style="width:500px;margin-left:-100px;"> Your consumption Calendar </h2>
+      <img style="position: absolute;left: 410px;"src="{% static "monitor/img/calendar.png" %}" alt="">
+  </center>
+</div>
+{% elif MODE == "U2" %}
+  <div class="inside" style="position:absolute; width:700px;margin-left:400px;margin-top:20px">
+    <div id='calendar2'></div>
+  </div>
+{% endif %}
+{% endblock %}
