@@ -21,7 +21,7 @@ There are three different ways to deploy the application in the server, see belo
 
 #### Docker Compose 
 ```sh
-  $ git clone https://github.com/xdanielsb/HappearthWeb.git repo/ && cd repo/  
+  $ git clone https://github.com/xdanielsb/Happearth.git repo/ && cd repo/  
   $ docker-compose build
   $ docker-compose up -d
 
@@ -33,7 +33,7 @@ There are three different ways to deploy the application in the server, see belo
 
 #### Virtual env
 ```sh
-  $ git clone https://github.com/xdanielsb/HappearthWeb.git repo/ && cd repo/
+  $ git clone https://github.com/xdanielsb/Happearth.git repo/ && cd repo/
   $ virtualenv ~/happearth --python `which python3.6`
   $ source ~/happearth/bin/activate 
   $ pip install -r requirements.txt
