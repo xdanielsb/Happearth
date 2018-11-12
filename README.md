@@ -1,6 +1,8 @@
 
 <div align="center">
   <h1>Happearth</h1>
+  
+  <h2> <a href="https://happearth.herokuapp.com"> See the live project.</a></h2>
   <p>Software prototype of a home energy monitor to be used by residents in housing communities to lower the energy consumption, also there is  and app connected to the project current avaliable in playstore. The software is connected to IoT devices such Alexa Amazon and Ecobee Thermostat. Some other technologies used were Docker, Django and Nginx..</p>
   <a href="https://play.google.com/store/apps/details?id=me.danieldev.happearth" align="center">
     <img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="150" height="60" alt="Get it on Google Play" border="0">
