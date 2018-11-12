@@ -14,6 +14,8 @@
 </div>
 
 
+<h2> <a href="https://happearth.herokuapp.com/monitor/"> See the monitor.</a></h2>
+
 
 
 Video Demos
