@@ -10,7 +10,7 @@ cffi==1.11.5
 channels==2.1.1
 chardet==3.0.4
 constantly==15.1.0
-cryptography==2.3
+cryptography==3.2
 daphne==2.1.1
 Django==2.0.8
 django-admin-honeypot==1.1.0
