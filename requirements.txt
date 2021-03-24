@@ -42,7 +42,7 @@ rcssmin==1.0.6
 requests==2.20.0
 requests-oauthlib==0.8.0
 rjsmin==1.0.12
-rsa==3.4.2
+rsa==4.1
 service-identity==17.0.0
 six==1.11.0
 Twisted==19.7.0
